@@ -33,11 +33,11 @@ export default function Blogs() {
   return (
     <div className="flex justify-center blogs">
       <h1 className={'collection-description'}>
-        <span className="w-10/12 text-[27vw] md:text-[22vw] lg:w-[22vw]  text-white leading-[20vw] md:leading-[20vw] lg:leading-[20vw] font-normal uppercase">
+        <span className="w-full text-[27vw] md:text-[22vw] lg:w-[22vw]  text-white leading-[20vw] md:leading-[20vw] lg:leading-[20vw] font-normal uppercase">
           Stories We Love
         </span>
       </h1>
-      <div className="w-full blogs-grid md:w-10/12">
+      <div className="w-full blogs-grid md:w-full">
         <Pagination connection={blogs}>
           {({nodes, isLoading, PreviousLink, NextLink}) => {
             return (

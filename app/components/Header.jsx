@@ -12,7 +12,7 @@ const soundUrl = '/audio/SoundWave.mp3';
 export function Header({header, isLoggedIn, cart, headerBg}) {
   const {shop, menu} = header;
   return (
-  <header className={"sticky z-20 flex items-center justify-center w-full h-20 p-4 -top-0" + ' ' + headerBg }>
+  <header className={"sticky z-20 flex items-start justify-center w-full h-28 p-[42px] -top-0 " + ' ' + headerBg }>
       <div className="flex flex-row justify-between w-full">
 
         <div className="flex-row hidden md:flex md:w-1/3">
@@ -25,7 +25,7 @@ export function Header({header, isLoggedIn, cart, headerBg}) {
         <div className="w-full md:w-1/3 ">
           <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
             {/* <strong>{shop.name}</strong> */}
-            <div className="flex justify-center h-16">
+            <div className="flex justify-center h-20 -mt-8">
               <img
                 src={TheBos}
                 alt="Thebos Skin-care products"
@@ -34,7 +34,7 @@ export function Header({header, isLoggedIn, cart, headerBg}) {
             </div>
           </NavLink>
         </div>
-        <div className="flex justify-end pt-3 md:w-1/3">
+        <div className="flex justify-end md:w-1/3">
           <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} viewport="mobile" />
         </div>
       </div>
@@ -57,7 +57,7 @@ export function HeaderMenu({
   cart,
 }) {
   const {publicStoreDomain} = useRootLoaderData();
-  const className = `header-menu-${viewport} flex gap-4 mt-10 md:gap-10 md:mt-2 divide-y divide-white md:divide-transparent `;
+  const className = `header-menu-${viewport} flex gap-4 md:gap-10 divide-y divide-white md:divide-transparent `;
 
   function closeAside(event) {
     if (viewport === 'mobile') {
@@ -67,8 +67,8 @@ export function HeaderMenu({
   }
 
   return (
-    <div className="flex flex-col w-full mt-1">
-      <div className="flex justify-between">
+    <div className="flex flex-col w-full">
+      <div className="flex justify-between md:hidden">
         <HeaderCtasMobile
           isLoggedIn={isLoggedIn}
           cart={cart}
@@ -76,7 +76,7 @@ export function HeaderMenu({
         />
       </div>
       <nav
-        className={className + (viewport === 'desktop' ? ' mt-3' : 'mt-0')}
+        className={className + (viewport === 'desktop' ? ' mt-0' : 'mt-0')}
         role="navigation"
       >
         {/* {viewport === 'mobile' && (
@@ -103,7 +103,7 @@ export function HeaderMenu({
           return (
             <NavLink
               className={
-                ' overflow-hidden h-12 md:h-10 md:-mt-1 text-sm font-thin leading-[55px] md:leading-10 text-white uppercase relative hover:no-underline '
+                ' overflow-hidden text-sm font-thin text-white uppercase relative hover:no-underline '
               }
               end
               key={item.id}
@@ -152,9 +152,9 @@ function HeaderCtas({isLoggedIn, cart, viewport}) {
       
     </div> */}
     <HeaderMenuMobileToggle />
-    <div className="flex flex-row items-center justify-center h-10 gap-4 md:flex">
+    <div className="flex flex-row items-start justify-center h-10 gap-4 md:flex">
   
-      <div className="pl-4 text-sm leading-10 text-white uppercase ">
+      <div className="pl-4 text-sm text-white uppercase ">
 
         <div className="relative menu-links">Sound</div>
         
@@ -178,7 +178,7 @@ function HeaderCtasMobile({isLoggedIn, cart, viewport}) {
     }
   }
   return (
-    <nav className="flex flex-row w-full gap-4" role="navigation">
+    <nav className="flex flex-row w-full gap-4 md:hidden" role="navigation">
       <div className="w-1/4 h-10 bg-[#79773a] text-white text-sm flex justify-center items-center md:hidden">
         <NavLink prefetch="intent" to="/account" onClick={closeAside}>
           {isLoggedIn ? 'Account' : 'Sign in'}
@@ -187,7 +187,7 @@ function HeaderCtasMobile({isLoggedIn, cart, viewport}) {
       <div className="w-1/4 h-10 bg-[#79773a] text-white text-sm flex justify-center items-center  md:hidden">
         <SearchToggle />
       </div>
-      <div className="w-1/4 h-10 bg-[#79773a] text-white text-sm flex justify-center items-center  md:hidden">
+      <div className="w-1/4 bg-[#79773a] text-white text-sm flex justify-center items-start  md:hidden">
         <CartToggle cart={cart} />
       </div>
       <div className="w-1/4 h-10 bg-[#79773a] text-[#79773a] text-sm   md:hidden  flex justify-center items-center">
@@ -219,7 +219,7 @@ function SearchToggle() {
  * @param {{count: number}}
  */
 function CartBadge({count}) {
-  return <a href="#cart-aside" className='relative leading-10 text-white uppercase hover:no-underline'>
+  return <a href="#cart-aside" className='relative text-white uppercase hover:no-underline'>
     <div className="menu-links">
          Cart {"( " + count + " )"}
     </div>

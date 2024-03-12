@@ -49,7 +49,7 @@ export function HomeHero({content}) {
 
         <div
           className={
-            'w-full bg-transparent flex  p-4  z-10 justify-end h-screen'
+            'w-full bg-transparent flex flex-row z-10 justify-end h-screen'
           }
         >
           

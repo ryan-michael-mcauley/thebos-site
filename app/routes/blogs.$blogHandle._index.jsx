@@ -45,9 +45,9 @@ export default function Blog() {
 
   return (
     <div className="flex justify-center w-full">
-      <div className="flex flex-col w-full gap-4 p-4 md:w-10/12 ">
+      <div className="flex flex-col w-full gap-4 p-4 md:w-full ">
       <h1 className={'collection-description'}>
-        <span className="w-10/12 text-[10vw] md:text-[10vw] lg:w-[10vw]  text-white leading-[20vw] md:leading-[20vw] lg:leading-[20vw] font-normal uppercase">
+        <span className="w-10/12 text-[15vw] md:text-[12vw] lg:w-[10vw]  text-white leading-[20vw] md:leading-[20vw] lg:leading-[20vw] font-normal uppercase text-center">
           Stories We Love
         </span>
       </h1>

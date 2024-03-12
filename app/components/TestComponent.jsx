@@ -16,7 +16,7 @@ export function TestComponent({content}) {
   const [slideTwo, setSlideTwo] = useState('opacity-0');
   const [slideThree, setSlideThree] = useState('opacity-0');
   const [rock, setRock] = useState('opacity-0');
-  const [rockmoved, setRockMoved] = useState(0); // Initialize rockmoved state with 0
+  const [rockmoved, setRockMoved] = useState(100); // Initialize rockmoved state with 0
 
   const [bgColour, setBgColour] = useState('bg-[#84824D]');
 
@@ -34,14 +34,18 @@ export function TestComponent({content}) {
         const colourFourTrigger = colourFour.current.getBoundingClientRect();
 
         const rockmovement = colourOneTrigger.top;
+        if (colourOneTrigger.top <= window.innerHeight / 2){
+          setRock('opacity-100 -translate-y-10');
+           setRockMoved(rockmovement + 5);
+        }
 
         if (colourOneTrigger.top <= window.innerHeight) {
           setBgColour('bg-[#84824D]');
           setSlideOne('opacity-100 -translate-y-10');
           setSlideTwo('opacity-0 ');
           setSlideThree('opacity-0');
-          setRock('opacity-100 -translate-y-10');
-          setRockMoved(rockmovement);
+          
+         
         }
         if (colourTwoTrigger.top <= 0) {
           setBgColour('bg-[#A78EB2]');
@@ -97,9 +101,13 @@ const slideContentThree = why[2];
 
   return (
     <div className={'flex flex-col relative transition-all duration-1000' + ' ' + bgColour}>
-      <div
+      <div class="glinda x">
+  <div className="glinda y"> 
+  <img className="grow" src="https://cdn.shopify.com/s/files/1/0719/4089/9080/files/rock.png" /> </div>
+</div>
+      {/* <div
         className={'fixed w-60  aspect-square transition-all duration-200 ease-linear ' + rock}
-        style={{ left: `${rockmoved / 30 * -1}rem`, bottom: `${rockmoved / 70 * -1}rem` }}
+        style={{ left: `${rockmoved / 30 * -1}em`, bottom: `${rockmoved / 60 * -1}em` }}
       >
 
             <Image
@@ -107,7 +115,7 @@ const slideContentThree = why[2];
               src={'https://cdn.shopify.com/s/files/1/0719/4089/9080/files/rock.png'}
               sizes="(min-width: 5em) 10vw, 50vw"
             />
-      </div>
+      </div> */}
       <div className="flex items-center justify-center h-screen">
         <div ref={colourOne} className={'w-full h-full flex justify-center items-center'}>
           <div
@@ -119,7 +127,7 @@ const slideContentThree = why[2];
           >
             <div className="uppercase">Why Us</div>
             <h1 className='text-[20vh] leading-[20vh] uppercase'>{slideContentOne[2].value}</h1>
-            <h3 className='text-base'>{slideContentOne[1].value}</h3>
+            <h3 className='text-xl'>{slideContentOne[1].value}</h3>
           </div>
         </div>
       </div>
@@ -134,7 +142,7 @@ const slideContentThree = why[2];
           >
             <div className="uppercase">Why Us</div>
             <h1 className='text-[20vh] leading-[20vh] uppercase'>{slideContentTwo[2].value}</h1>
-            <h3 className='text-base'>{slideContentTwo[1].value}</h3>
+            <h3 className='text-xl'>{slideContentTwo[1].value}</h3>
           </div>
         </div>
       </div>
@@ -149,7 +157,7 @@ const slideContentThree = why[2];
           >
             <div className="uppercase">Why Us</div>
             <h1 className='text-[20vh] leading-[20vh] uppercase'>{slideContentThree[2].value}</h1>
-            <h3 className='text-base'>{slideContentThree[1].value}</h3>
+            <h3 className='text-xl'>{slideContentThree[1].value}</h3>
           </div>
         </div>
       </div>

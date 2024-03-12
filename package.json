@@ -36,6 +36,7 @@
     "@types/eslint": "^8.4.10",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
+    "@types/resize-observer-browser": "^0.1.11",
     "eslint": "^8.20.0",
     "eslint-plugin-hydrogen": "0.12.2",
     "postcss": "^8.4.21",

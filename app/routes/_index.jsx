@@ -35,11 +35,12 @@ export default function Homepage() {
   const {home_hero, home_intro, home_products, why_us, home_belief} = useLoaderData();  
  
   return (
-    <div className={"-mt-20 transition-all duration-500 "}>
+    <div className={"-mt-28 transition-all duration-500 "}>
       <HomeHero content={home_hero.metaobject.fields} />
       <KeyFrameText content={home_intro.metaobject.fields} />
-      <HomeProducts products={home_products.products} />
+      <HomeProducts products={home_products.products} />  
       <TestComponent content={why_us.metaobjects.nodes}/>
+    
       <Belief content={home_belief.metaobject.fields} />
     </div>
     

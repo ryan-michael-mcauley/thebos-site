@@ -68,14 +68,14 @@ export function KeyFrameText({ content }) {
 
   const adjustIndex = (direction) => {
     if (direction === 'down') {
-      setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, words.length - 1));
+      setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, words.length));
     } else if (direction === 'up') {
       setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
     }
   };
 
   return (
-    <div className="w-full px-4 py-16 md:w-2/3 " ref={containerRef}>
+    <div className="w-full px-[42px] py-20 md:w-3/4 " ref={containerRef}>
       {/* <div className="pb-4 text-base font-thin text-white uppercase">
         {title}
       </div> */}
@@ -85,11 +85,11 @@ export function KeyFrameText({ content }) {
             key={index}
             className="text-5xl text-white"
             style={{
-              opacity: (index <= currentIndex) ? 1 : 0.15,
-              transition: 'opacity 0.2s', // Adjusted transition duration
+              opacity: (index < currentIndex ) ? 1 : 0.15,
+              transition: 'opacity 0.5s', // Adjusted transition duration
             }}
           >
-            {word}
+            {word} 
           </div>
         ))}
       </div>
@@ -120,18 +120,18 @@ export function KeyFrameText2({content}) {
   const characters = description.split('');
 
   return (
-    <div className="w-full px-4 py-10 h-1/2 ">
-      <div className="text-base font-thin uppercase text-[#636130] pb-4">
+    <div className="w-full h-1/2 px-[42px] ">
+      {/* <div className="text-base font-thin uppercase text-[#636130] pb-4">
         {title}
-      </div>
+      </div> */}
       {characters.map((char, index) => (
-        <span
+        <div
           key={index}
           className="text-3xl text-transparent character2" // Tailwind class for white text
           style={{animationDelay: `${index * 0.02}s`}}
         >
           {char}
-        </span>
+        </div>
       ))}
     </div>
   );
